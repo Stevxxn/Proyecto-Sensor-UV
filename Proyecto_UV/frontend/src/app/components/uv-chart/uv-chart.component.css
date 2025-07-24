@@ -1,0 +1,28 @@
+/* Gráfico responsivo */
+.chart-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: #fff;
+}
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Alertas UV */
+.uv-alert {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.uv-low { background-color: #2ecc71; color: white; }
+.uv-medium { background-color: #f39c12; color: white; }
+.uv-high { background-color: #e74c3c; color: white; }

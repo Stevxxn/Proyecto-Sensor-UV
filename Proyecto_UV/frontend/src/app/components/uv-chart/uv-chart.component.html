@@ -1,0 +1,10 @@
+<div class="chart-container">
+  <div *ngIf="lastValue" class="uv-alert" [ngClass]="{
+    'uv-low': lastValue < 5,
+    'uv-medium': lastValue >= 5 && lastValue < 10,
+    'uv-high': lastValue >= 10
+    }">
+    Nivel UV Actual: {{ lastValue }} mW/cm²
+    </div>
+    <canvas id="uvChart"></canvas>
+</div>
