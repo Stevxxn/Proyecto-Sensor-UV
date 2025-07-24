@@ -1,0 +1,29 @@
+<div class="table-container">
+    <h2>Registros UV</h2>
+    
+    <div *ngIf="isLoading" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Cargando datos...</p>
+    </div>
+
+    <table *ngIf="!isLoading">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Valor (mW/cm²)</th>
+            <th>Fecha/Hora</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of uvData; let i = index" [class]="getAlertClass(item.value)">
+            <td>{{ i + 1 }}</td>
+            <td>{{ item.value | number:'1.2-2' }}</td>
+            <td>{{ item.timestamp | date:'medium' }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="!isLoading && uvData.length === 0" class="no-data">
+        No hay datos disponibles
+    </div>
+</div>

@@ -1,20 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { UvService } from '../../services/uv.service';
-import { Chart } from 'chart.js/auto'; // Importación optimizada
+import { CommonModule } from '@angular/common';
+import { UvService } from '../services/uv.service';
+import { Chart, registerables } from 'chart.js';
 
 @Component({
     selector: 'app-uv-chart',
+    standalone: true,
+    imports: [CommonModule],
     templateUrl: './uv-chart.component.html',
     styleUrls: ['./uv-chart.component.css']
 })
 export class UvChartComponent implements OnInit {
-    public chart: any;
+    chart: any;
+    lastValue?: number;
 
-    constructor(private uvService: UvService) {}
+    constructor(private uvService: UvService) {
+        Chart.register(...registerables);
+    }
 
     ngOnInit() {
-        this.uvService.getUVData().subscribe(data => {
-        this.createChart(data);
+        this.loadData();
+    }
+
+    loadData() {
+        this.uvService.getUVData().subscribe((data: any[]) => { // <-- Tipo añadido
+        if (data && data.length > 0) {
+            this.lastValue = data[0].value;
+            this.createChart(data);
+        }
         });
     }
 

@@ -1,0 +1,68 @@
+.table-container {
+    margin: 20px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #2c3e50;
+    color: white;
+    font-weight: 500;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Estilos de alerta */
+tr.danger {
+    background-color: #ffdddd;
+    border-left: 4px solid #e74c3c;
+}
+
+tr.warning {
+    background-color: #fff3cd;
+    border-left: 4px solid #f39c12;
+}
+
+tr.safe {
+    border-left: 4px solid #2ecc71;
+}
+
+.loading-spinner {
+    text-align: center;
+    padding: 30px;
+}
+
+.spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.no-data {
+    text-align: center;
+    padding: 20px;
+    color: #7f8c8d;
+    font-style: italic;
+}
