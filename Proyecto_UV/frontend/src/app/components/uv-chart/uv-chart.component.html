@@ -1,10 +1,26 @@
-<div class="chart-container">
-  <div *ngIf="lastValue" class="uv-alert" [ngClass]="{
-    'uv-low': lastValue < 5,
-    'uv-medium': lastValue >= 5 && lastValue < 10,
-    'uv-high': lastValue >= 10
-    }">
-    Nivel UV Actual: {{ lastValue }} mW/cm²
-    </div>
-    <canvas id="uvChart"></canvas>
+<div *ngIf="loading" class="loading">Cargando datos...</div>
+
+<div *ngIf="error" class="error">
+  Error al cargar los datos. Intenta recargar la página.
+</div>
+
+<!-- Tabla de datos -->
+<table *ngIf="!loading && !error && uvData.length > 0">
+  <thead>
+    <tr>
+      <th>Fecha/Hora</th>
+      <th>Valor UV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of uvData">
+      <td>{{ item.timestamp | date:'medium' }}</td>
+      <td>{{ item.value }} mW/cm²</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Gráfico (opcional) -->
+<div *ngIf="!loading && !error" class="chart-container">
+  <canvas id="uvChart"></canvas>
 </div>
