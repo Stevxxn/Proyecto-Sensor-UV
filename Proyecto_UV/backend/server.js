@@ -6,7 +6,10 @@ const morgan = require('morgan'); // Opcional: para logs (lo tenías en tu otro 
 const app = express();
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:4200',
+    methods: ['GET', 'POST']
+}));
 app.use(express.json());
 app.use(morgan('tiny')); // Logs de requests
 
