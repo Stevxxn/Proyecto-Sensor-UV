@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const uvController = require('../controllers/uv.controllers');
-
+const ip = localhost = 'http://localhost:3000/api';
 router.post('/uv', uvController.addData);
 router.get('/uv', uvController.getData);
 
@@ -17,6 +17,9 @@ router.get('/', (req, res) => {
         <p>Para enviar datos, usa un cliente HTTP como Postman o cURL.</p>
         <p>Ejemplo de cuerpo para POST:</p>
         <pre>{ "value": 5.6 }</pre>
+        <nav>
+            <a href="${ip}/uv">Consultar registros UV</a>
+        </nav>
         <p>¡Gracias por usar nuestro servicio!</p>
         <p>Desarrollado por 
             <ul>

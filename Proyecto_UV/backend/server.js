@@ -54,4 +54,4 @@ app.get('/api/uv', async (req, res) => {
 });
 
 // Iniciar servidor
-app.listen(3000, () => console.log('Servidor en http://localhost:3000'));
+app.listen(3000, () => console.log('Servidor en http://localhost:3000/api'));
